@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Dacio Machado</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        article {
+            background-color: #f4f4f4;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        aside {
+            background-color: #ddd;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        .header {
+            background-color: #333;
+        }
+
+        #main {
+            padding: 20px;
+        }
+
+        #footer {
+            background-color: #222;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+<header>
+    <h1>Meu Portfólio</h1>
+    <p>Bem-vindo à minha página pessoal</p>
+</header>
+</div>
+
+<nav>
+    <a href="#sobre" target="_self">Sobre</a>
+    <a href="#projetos" target="_self">Projetos</a>
+    <a href="#contato" target="_self" title="Ir para contato">Contato</a>
+    <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+</nav>
+
+<div id="main">
+<section id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Sou professor de <b>Programação</b> e apaixonado por <strong>tecnologia</strong>.</p>
+    <p>Tenho experiência com <i>Front-End</i>, <em>Back-End</em> e banco de dados.</p>
+    <p>Exemplo de marcação <mark>importante</mark>, texto <small>pequeno</small>, 
+       texto <del>removido</del>, texto <ins>inserido</ins>.</p>
+    <p>Fórmula: H<sub>2</sub>O | Potência: 10<sup>2</sup></p>
+
+    <img src="https://via.placeholder.com/150" alt="Foto perfil">
+
+    <h3>Formação</h3>
+    <ul>
+        <li>Graduação</li>
+        <li>Pós-graduação</li>
+    </ul>
+
+    <h3>Etapas da Carreira</h3>
+    <ol>
+        <li>Estudos</li>
+        <li>Experiência</li>
+        <li>Docência</li>
+    </ol>
+</section>
+
+<section id="projetos">
+    <h2>Projetos</h2>
+
+    <article>
+        <h3>Projeto 1</h3>
+        <p>Descrição do projeto desenvolvido.</p>
+    </article>
+
+    <article>
+        <h3>Projeto 2</h3>
+        <p>Outro projeto relevante.</p>
+    </article>
+
+    <aside>
+        <h4>Observação</h4>
+        <p>Projetos desenvolvidos durante a carreira acadêmica.</p>
+    </aside>
+
+    <h3>Tabela de Tecnologias</h3>
+    <table>
+        <tr>
+            <th>Tecnologia</th>
+            <th>Nível</th>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>Avançado</td>
+        </tr>
+        <tr>
+            <td>CSS</td>
+            <td>Intermediário</td>
+        </tr>
+    </table>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+
+    <form>
+        <fieldset>
+            <legend>Envie uma mensagem</legend>
+
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome"><br><br>
+
+            <label>Gênero:</label><br>
+            <input type="radio" name="genero"> Masculino
+            <input type="radio" name="genero"> Feminino<br><br>
+
+            <label>Interesses:</label><br>
+            <input type="checkbox"> Programação
+            <input type="checkbox"> Robótica<br><br>
+
+            <label for="area">Área:</label>
+            <select id="area">
+                <option>Front-End</option>
+                <option>Back-End</option>
+                <option>Banco de Dados</option>
+            </select><br><br>
+
+            <label for="linguagem">Linguagem favorita:</label>
+            <input list="linguagens" name="linguagem">
+            <datalist id="linguagens">
+                <option value="Java">
+                <option value="Python">
+                <option value="JavaScript">
+            </datalist><br><br>
+
+            <label for="mensagem">Mensagem:</label><br>
+            <textarea name="mensagem" rows="5" cols="30"></textarea><br><br>
+
+            <input type="submit" value="Enviar">
+            <input type="button" value="Botão">
+            <button>Botão HTML</button>
+
+        </fieldset>
+    </form>
+
+    <p>Email: <a href="mailto:daciofmf@gmail.com">Enviar Email</a></p>
+</section>
+</div>
+
+<div id="footer">
+<footer>
+    <h5>Rodapé</h5>
+    <h6>Todos os direitos reservados</h6>
+</footer>
+</div>
+
+</body>
+</html>
