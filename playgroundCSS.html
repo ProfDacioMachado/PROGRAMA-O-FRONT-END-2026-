@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Super Playground CSS Completo - Revisado</title>
+
+<style>
+    :root {
+        --code-bg: #1e1e1e;
+        --code-color: #00ff88;
+    }
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f0f2f5;
+        padding: 20px;
+        scroll-behavior: smooth;
+    }
+    header { text-align: center; margin-bottom: 30px; }
+    
+    section {
+        background: white;
+        padding: 25px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .controls-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .control-item { display: flex; flex-direction: column; gap: 5px; }
+    label { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; cursor: pointer;}
+    
+    input[type="text"], select { padding: 6px; border: 1px solid #ddd; border-radius: 4px; }
+    input[type="range"] { cursor: pointer; }
+
+    .preview {
+        margin: 20px 0;
+        padding: 40px;
+        border: 2px dashed #cbd5e0;
+        background: #ffffff;
+        min-height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .code {
+        background: var(--code-bg);
+        color: var(--code-color);
+        padding: 15px;
+        white-space: pre-wrap;
+        font-family: 'Consolas', monospace;
+        border-radius: 6px;
+        font-size: 13px;
+        border-left: 4px solid #00ff88;
+    }
+
+    /* Elementos Base */
+    #navPreview { width: 100%; transition: 0.3s; }
+    #navPreview a { text-decoration: none; transition: 0.2s; padding: 5px 10px; border-radius: 4px; }
+    .box { display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+    .divPreview { width: 100%; min-height: 100px; border: 1px solid #eee; }
+    .divPreview div { padding: 15px; background: #4a90e2; color: white; border-radius: 4px; text-align: center; min-width: 40px; }
+    
+    /* Tag de estilo dinâmica para o Hover */
+    #dynamic-styles { display: none; }
+</style>
+<style id="nav-hover-style"></style>
+</head>
+<body>
+
+<header>
+    <h1>Super Playground CSS 2.0</h1>
+    <p>Ajuste as propriedades abaixo e veja o código sendo gerado.</p>
+</header>
+
+<section>
+    <h2>1. Navegação (NAV)</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="navBgCheck"> Background</label>
+            <input type="color" id="navBg" value="#2d3436">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navPaddingCheck"> Padding (y x)</label>
+            <input type="text" id="navPadding" value="15px 20px">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navGapCheck"> Gap (links)</label>
+            <input type="range" id="navGap" min="0" max="50" value="20">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navLinkColorCheck"> Link Color</label>
+            <input type="color" id="navLinkColor" value="#ffffff">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navHoverCheck"> Hover Color</label>
+            <input type="color" id="navHover" value="#00ff88">
+        </div>
+    </div>
+    <div class="preview">
+        <nav id="navPreview">
+            <a href="javascript:void(0)">Início</a>
+            <a href="javascript:void(0)">Sobre</a>
+            <a href="javascript:void(0)">Serviços</a>
+            <a href="javascript:void(0)">Contato</a>
+        </nav>
+    </div>
+    <div class="code" id="navCode"></div>
+</section>
+
+<section>
+    <h2>2. Box Model & Effects</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="boxBgCheck"> Background</label>
+            <input type="color" id="boxBg" value="#e74c3c">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxSizeCheck"> Tamanho (px)</label>
+            <input type="range" id="boxSize" min="50" max="300" value="150">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxRadiusCheck"> Border Radius (px)</label>
+            <input type="range" id="boxRadius" min="0" max="150" value="10">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxBorderCheck"> Border</label>
+            <input type="text" id="boxBorder" value="4px solid #c0392b">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxShadowCheck"> Box Shadow</label>
+            <input type="text" id="boxShadow" value="0 10px 20px rgba(0,0,0,0.2)">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxRotateCheck"> Rotate (deg)</label>
+            <input type="range" id="boxRotate" min="0" max="360" value="0">
+        </div>
+    </div>
+    <div class="preview">
+        <div class="box" id="boxPreview">BOX</div>
+    </div>
+    <div class="code" id="boxCode"></div>
+</section>
+
+<section>
+    <h2>3. Tipografia</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="txtColorCheck"> Color</label>
+            <input type="color" id="txtColor" value="#2c3e50">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtSizeCheck"> Font Size (px)</label>
+            <input type="range" id="txtSize" min="10" max="80" value="20">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtWeightCheck"> Font Weight</label>
+            <select id="txtWeight"><option>300</option><option selected>400</option><option>700</option><option>900</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtAlignCheck"> Align</label>
+            <select id="txtAlign"><option>left</option><option>center</option><option>right</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtTransformCheck"> Transform</label>
+            <select id="txtTransform"><option>none</option><option>uppercase</option><option>capitalize</option></select>
+        </div>
+    </div>
+    <div class="preview">
+        <p id="txtPreview">Clique nos controles para transformar este texto de exemplo em algo incrível.</p>
+    </div>
+    <div class="code" id="txtCode"></div>
+</section>
+
+<section>
+    <h2>4. Tabela</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="tblCollapseCheck"> Border Collapse</label>
+            <select id="tblCollapse"><option>separate</option><option selected>collapse</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="tblPaddingCheck"> Cell Padding (px)</label>
+            <input type="range" id="tblPadding" min="0" max="40" value="12">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="tblHeaderBgCheck"> Header Color</label>
+            <input type="color" id="tblHeaderBg" value="#34495e">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="tblZebraCheck"> Zebra Stripe</label>
+        </div>
+    </div>
+    <div class="preview">
+        <table id="tblPreview">
+            <thead>
+                <tr><th>Produto</th><th>Preço</th><th>Estoque</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Item A</td><td>R$ 50</td><td>Sim</td></tr>
+                <tr><td>Item B</td><td>R$ 80</td><td>Não</td></tr>
+                <tr><td>Item C</td><td>R$ 30</td><td>Sim</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="code" id="tblCode"></div>
+</section>
+
+<script>
+    const $ = id => document.getElementById(id);
+    const hoverStyle = $('nav-hover-style');
+
+    const inputs = [
+        'navBgCheck', 'navBg', 'navPaddingCheck', 'navPadding', 'navGapCheck', 'navGap', 'navLinkColorCheck', 'navLinkColor', 'navHoverCheck', 'navHover',
+        'boxBgCheck', 'boxBg', 'boxSizeCheck', 'boxSize', 'boxRadiusCheck', 'boxRadius', 'boxBorderCheck', 'boxBorder', 'boxShadowCheck', 'boxShadow', 'boxRotateCheck', 'boxRotate',
+        'txtColorCheck', 'txtColor', 'txtSizeCheck', 'txtSize', 'txtWeightCheck', 'txtWeight', 'txtAlignCheck', 'txtAlign', 'txtTransformCheck', 'txtTransform',
+        'tblCollapseCheck', 'tblCollapse', 'tblPaddingCheck', 'tblPadding', 'tblHeaderBgCheck', 'tblHeaderBg', 'tblZebraCheck'
+    ];
+
+    inputs.forEach(id => $(id).addEventListener('input', update));
+
+    function update() {
+        // --- NAV ---
+        const nav = $('navPreview');
+        const navLinks = document.querySelectorAll('#navPreview a');
+        let nStyle = "display: flex; align-items: center; ";
+        let nCode = "nav {\n  display: flex;\n  align-items: center;\n";
+        
+        if($('navBgCheck').checked) { nStyle += `background: ${$('navBg').value}; `; nCode += `  background: ${$('navBg').value};\n`; }
+        if($('navPaddingCheck').checked) { nStyle += `padding: ${$('navPadding').value}; `; nCode += `  padding: ${$('navPadding').value};\n`; }
+        if($('navGapCheck').checked) { nStyle += `gap: ${$('navGap').value}px; `; nCode += `  gap: ${$('navGap').value}px;\n`; }
+        nav.style = nStyle;
+
+        let linkCode = "";
+        navLinks.forEach(a => {
+            a.style.color = $('navLinkColorCheck').checked ? $('navLinkColor').value : '';
+        });
+        if($('navLinkColorCheck').checked) linkCode += `nav a {\n  color: ${$('navLinkColor').value};\n}\n`;
+
+        if($('navHoverCheck').checked) {
+            hoverStyle.innerHTML = `#navPreview a:hover { color: ${$('navHover').value} !important; background: rgba(0,0,0,0.05); }`;
+            linkCode += `nav a:hover {\n  color: ${$('navHover').value};\n}`;
+        } else {
+            hoverStyle.innerHTML = "";
+        }
+        $('navCode').textContent = nCode + "}\n" + linkCode;
+
+        // --- BOX ---
+        const box = $('boxPreview');
+        let bStyle = "display: flex; align-items: center; justify-content: center; ";
+        let bCode = ".box {\n";
+        
+        if($('boxBgCheck').checked) { bStyle += `background: ${$('boxBg').value}; `; bCode += `  background: ${$('boxBg').value};\n`; }
+        if($('boxSizeCheck').checked) { 
+            const s = $('boxSize').value + "px";
+            bStyle += `width: ${s}; height: ${s}; `; bCode += `  width: ${s};\n  height: ${s};\n`; 
+        }
+        if($('boxRadiusCheck').checked) { bStyle += `border-radius: ${$('boxRadius').value}px; `; bCode += `  border-radius: ${$('boxRadius').value}px;\n`; }
+        if($('boxBorderCheck').checked) { bStyle += `border: ${$('boxBorder').value}; `; bCode += `  border: ${$('boxBorder').value};\n`; }
+        if($('boxShadowCheck').checked) { bStyle += `box-shadow: ${$('boxShadow').value}; `; bCode += `  box-shadow: ${$('boxShadow').value};\n`; }
+        if($('boxRotateCheck').checked) { bStyle += `transform: rotate(${$('boxRotate').value}deg); `; bCode += `  transform: rotate(${$('boxRotate').value}deg);\n`; }
+        
+        box.style = bStyle;
+        $('boxCode').textContent = bCode + "}";
+
+        // --- TEXT ---
+        const txt = $('txtPreview');
+        let tStyle = "";
+        let tCode = "p {\n";
+        
+        if($('txtColorCheck').checked) { tStyle += `color: ${$('txtColor').value}; `; tCode += `  color: ${$('txtColor').value};\n`; }
+        if($('txtSizeCheck').checked) { tStyle += `font-size: ${$('txtSize').value}px; `; tCode += `  font-size: ${$('txtSize').value}px;\n`; }
+        if($('txtWeightCheck').checked) { tStyle += `font-weight: ${$('txtWeight').value}; `; tCode += `  font-weight: ${$('txtWeight').value};\n`; }
+        if($('txtAlignCheck').checked) { tStyle += `text-align: ${$('txtAlign').value}; `; tCode += `  text-align: ${$('txtAlign').value};\n`; }
+        if($('txtTransformCheck').checked) { tStyle += `text-transform: ${$('txtTransform').value}; `; tCode += `  text-transform: ${$('txtTransform').value};\n`; }
+        
+        txt.style = tStyle;
+        $('txtCode').textContent = tCode + "}";
+
+        // --- TABLE ---
+        const tbl = $('tblPreview');
+        const cells = document.querySelectorAll('#tblPreview th, #tblPreview td');
+        const header = document.querySelectorAll('#tblPreview th');
+        const rows = document.querySelectorAll('#tblPreview tbody tr');
+        
+        let tblCode = "table {\n";
+        if($('tblCollapseCheck').checked) { tbl.style.borderCollapse = $('tblCollapse').value; tblCode += `  border-collapse: ${$('tblCollapse').value};\n`; }
+        else { tbl.style.borderCollapse = 'separate'; }
+
+        cells.forEach(c => {
+            c.style.padding = $('tblPaddingCheck').checked ? $('tblPadding').value + "px" : '';
+        });
+        
+        header.forEach(h => {
+            h.style.background = $('tblHeaderBgCheck').checked ? $('tblHeaderBg').value : '';
+            h.style.color = $('tblHeaderBgCheck').checked ? '#fff' : '';
+        });
+
+        rows.forEach((r, idx) => {
+            r.style.background = ($('tblZebraCheck').checked && idx % 2 !== 0) ? '#f8f9fa' : '';
+        });
+
+        if($('tblPaddingCheck').checked) tblCode += `  /* células */\n  padding: ${$('tblPadding').value}px;\n`;
+        $('tblCode').textContent = tblCode + "}";
+    }
+
+    // Run initial
+    update();
+</script>
+
+</body>
+</html>
