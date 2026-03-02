@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Super Playground CSS Completo - Revisado</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+    :root {
+        --code-bg: #1e1e1e;
+        --code-color: #00ff88;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+        scroll-behavior: smooth;
+        line-height: 1.6;
+    }
+    header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    section {
+        background: white;
+        padding: 25px;
+        margin-bottom: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    h2 {
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+        margin-top: 0;
+        color: #333;
+    }
+    .controls-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+    .control-item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px;
+        background: #fafafa;
+        border-radius: 4px;
+    }
+    label {
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    input[type="text"], input[type="url"], select {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="range"] { width: 100%; }
+    input[type="color"] { height:34px; width:60px; padding:0; border:none; }
+    .preview {
+        margin-top: 12px;
+        padding: 20px;
+        border: 2px dashed #bbb;
+        background: #fff;
+        min-height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+    }
+    .code {
+        background: var(--code-bg);
+        color: var(--code-color);
+        padding: 12px;
+        white-space: pre;
+        font-family: 'Courier New', monospace;
+        margin-top: 12px;
+        border-radius: 4px;
+        font-size: 13px;
+        border-left: 5px solid #00ff88;
+        max-height: 280px;
+        overflow:auto;
+    }
+    .row { display: flex; gap: 10px; align-items: center; }
+    .small { font-size: 11px; color: #666; font-weight: normal; }
+
+    /* Estilos Base dos Elementos */
+    #navPreview { width: 100%; padding: 10px; border-radius:6px; }
+    #navPreview a { margin-right: 15px; text-decoration: none; padding: 6px 8px; border-radius:4px; display:inline-block; }
+    .box { width: 150px; height: 150px; background: lightgray; display: flex; align-items: center; justify-content: center; border-radius:6px; }
+    .textPreview { width: 100%; max-width: 900px; }
+    .divPreview { width: 100%; min-height: 120px; background: #f9f9f9; border: 1px solid #ddd; padding: 10px; border-radius:6px; display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap; }
+    .divPreview > div { background: #007bff; color: white; padding: 12px; border-radius: 4px; text-align: center; min-width:40px; }
+    table#tblPreview { width: 100%; border-collapse: separate; border-spacing: 4px; border-radius:6px; overflow:hidden; }
+    table#tblPreview th, table#tblPreview td { padding: 8px; border: 1px solid #ccc; background:white; }
+    ul,ol { padding-left:40px; }
+</style>
+
+<!-- dynamic rules for hover and generated pseudo rules -->
+<style id="dynamicStyles"></style>
+</head>
+<body>
+
+<header>
+    <h1>Super Playground CSS </h1>
+    <p class="small">Ative as propriedades (checkbox) e ajuste os controles para ver o resultado e o CSS gerado.</p>
+</header>
+
+<!-- NAV -->
+<section id="navSection">
+    <h2>1. NAV (Navegação)</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="navBgCheck"> background</label>
+            <input type="color" id="navBg" value="#e0e0e0">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navPaddingCheck"> padding</label>
+            <input id="navPadding" type="text" value="12px 16px">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navDisplayCheck"> display</label>
+            <select id="navDisplay"><option value="flex">flex</option><option value="block">block</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navJustifyCheck"> justify-content</label>
+            <select id="navJustify"><option>flex-start</option><option>center</option><option>space-between</option><option>space-around</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navGapCheck"> gap (px)</label>
+            <input id="navGap" type="range" min="0" max="50" value="12">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navLinkColorCheck"> link color</label>
+            <input type="color" id="navLinkColor" value="#0000ff">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="navHoverCheck"> hover color</label>
+            <input type="color" id="navHover" value="#ff0000">
+        </div>
+    </div>
+
+    <div class="preview">
+        <nav id="navPreview">
+            <a href="#boxSection">Box</a>
+            <a href="#textSection">Texto</a>
+            <a href="#divSection">Div</a>
+            <a href="#tableSection">Tabela</a>
+            <a href="#listSection">Listas</a>
+        </nav>
+    </div>
+    <div class="code" id="navCode">/* CSS da Navegação (gerado) */</div>
+</section>
+
+<!-- BOX -->
+<section id="boxSection">
+    <h2>2. BOX (Container)</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="boxBgCheck"> background</label>
+            <input type="color" id="boxBg" value="#3498db">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxWidthCheck"> width / height (px)</label>
+            <input id="boxWidth" type="range" min="50" max="400" value="150">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxRadiusCheck"> border-radius (px)</label>
+            <input id="boxRadius" type="range" min="0" max="200" value="8">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxBorderCheck"> border (css)</label>
+            <input id="boxBorder" type="text" value="4px solid #2c3e50">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxShadowCheck"> box-shadow</label>
+            <input id="boxShadow" type="text" value="10px 10px 20px rgba(0,0,0,0.25)">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxTransformCheck"> rotate & scale</label>
+            <div class="row"><input id="boxRotate" type="range" min="0" max="360" value="0"> <input id="boxScale" type="range" min="0.5" max="2" step="0.05" value="1"></div>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxFilterCheck"> blur & brightness</label>
+            <div class="row"><input id="boxBlur" type="range" min="0" max="10" value="0"> <input id="boxBright" type="range" min="0.5" max="2" step="0.1" value="1"></div>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="boxTransitionCheck"> transition</label>
+            <input id="boxTransition" type="text" value="all 0.35s ease">
+        </div>
+    </div>
+
+    <div class="preview">
+        <div class="box" id="boxPreview">BOX</div>
+    </div>
+    <div class="code" id="boxCode">/* CSS do Box (gerado) */</div>
+</section>
+
+<!-- TEXT -->
+<section id="textSection">
+    <h2>3. TEXTO</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="txtColorCheck"> color</label>
+            <input id="txtColor" type="color" value="#333333">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtSizeCheck"> font-size (px)</label>
+            <input id="txtSize" type="range" min="10" max="50" value="18">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtWeightCheck"> font-weight</label>
+            <select id="txtWeight"><option>400</option><option>600</option><option>700</option><option>900</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtAlignCheck"> text-align</label>
+            <select id="txtAlign"><option>left</option><option>center</option><option>right</option><option>justify</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtSpacingCheck"> letter-spacing (px)</label>
+            <input id="txtSpacing" type="range" min="0" max="15" value="0">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtTransformCheck"> text-transform</label>
+            <select id="txtTransform"><option>none</option><option>uppercase</option><option>lowercase</option><option>capitalize</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="txtShadowCheck"> text-shadow</label>
+            <input id="txtShadow" type="text" value="2px 2px 5px rgba(0,0,0,0.25)">
+        </div>
+    </div>
+
+    <div class="preview">
+        <p class="textPreview" id="txtPreview">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at varius enim. Experimente mudar as propriedades de fonte e alinhamento neste parágrafo.
+        </p>
+    </div>
+    <div class="code" id="txtCode">/* CSS do Texto (gerado) */</div>
+</section>
+
+<!-- DIV -->
+<section id="divSection">
+    <h2>4. DIV (Flexbox & Grid)</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="divDisplayCheck"> display</label>
+            <select id="divDisplay"><option value="flex">flex</option><option value="grid">grid</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="divDirectionCheck"> direction / grid columns</label>
+            <select id="divDirection"><option value="row">row (flex)</option><option value="column">column (flex)</option></select>
+            <input id="divGridCols" type="text" value="repeat(3, 1fr)" placeholder="grid-template-columns">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="divJustifyCheck"> justify-content</label>
+            <select id="divJustify"><option>center</option><option>flex-start</option><option>space-between</option><option>space-around</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="divGapCheck"> gap (px)</label>
+            <input id="divGap" type="range" min="0" max="50" value="10">
+        </div>
+    </div>
+
+    <div class="preview">
+        <div class="divPreview" id="divPreview">
+            <div>1</div><div>2</div><div>3</div>
+        </div>
+    </div>
+    <div class="code" id="divCode">/* CSS do Container (gerado) */</div>
+</section>
+
+<!-- TABLE -->
+<section id="tableSection">
+    <h2>5. TABELA</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="tblCollapseCheck"> border-collapse</label>
+            <select id="tblCollapse"><option value="separate">separate</option><option value="collapse">collapse</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="tblSpacingCheck"> border-spacing (px)</label>
+            <input id="tblSpacing" type="range" min="0" max="20" value="4">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="tblPaddingCheck"> cell padding (px)</label>
+            <input id="tblPadding" type="range" min="0" max="30" value="8">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="tblHeaderBgCheck"> header background</label>
+            <input id="tblHeaderBg" type="color" value="#333333">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="tblZebraCheck"> zebra stripe (odd)</label>
+        </div>
+    </div>
+
+    <div class="preview">
+        <table id="tblPreview">
+            <thead>
+                <tr><th>ID</th><th>Nome</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>01</td><td>Sistema A</td><td>Ativo</td></tr>
+                <tr><td>02</td><td>Sistema B</td><td>Pendente</td></tr>
+                <tr><td>03</td><td>Sistema C</td><td>Inativo</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="code" id="tblCode">/* CSS da Tabela (gerado) */</div>
+</section>
+
+<!-- LISTS -->
+<section id="listSection">
+    <h2>6. LISTAS</h2>
+    <div class="controls-grid">
+        <div class="control-item">
+            <label><input type="checkbox" id="lstTypeCheck"> list-style-type</label>
+            <select id="lstType"><option>disc</option><option>square</option><option>decimal</option><option>upper-roman</option></select>
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="lstSpacingCheck"> item spacing (px)</label>
+            <input id="lstSpacing" type="range" min="0" max="40" value="6">
+        </div>
+        <div class="control-item">
+            <label><input type="checkbox" id="lstColorCheck"> marker / text color</label>
+            <input id="lstColor" type="color" value="#ff6600">
+        </div>
+    </div>
+
+    <div class="preview">
+        <ul id="ulPreview">
+            <li>Primeiro item</li>
+            <li>Segundo item importante</li>
+            <li>Terceiro item para testar quebra de linha</li>
+        </ul>
+    </div>
+    <div class="code" id="lstCode">/* CSS da Lista (gerado) */</div>
+</section>
+
+<script>
+    const $ = id => document.getElementById(id);
+
+    // bind inputs -> updateAll
+    const inputs = Array.from(document.querySelectorAll('input, select'));
+    inputs.forEach(i => i.addEventListener('input', updateAll));
+
+    // helper to set style safely (avoids wiping unrelated styles)
+    function setStyle(el, prop, value) {
+        if (!el) return;
+        if (value === "" || value === null || value === undefined) {
+            el.style.removeProperty(prop);
+        } else {
+            el.style[prop] = value;
+        }
+    }
+
+    function updateAll() {
+        const dynamic = [];
+
+        /* ==== NAV ==== */
+        const nav = $('navPreview');
+        // reset relevant inline styles (not wiping things like dataset)
+        nav.style.display = '';
+        nav.style.padding = '';
+        nav.style.backgroundColor = '';
+        nav.style.justifyContent = '';
+        nav.style.gap = '';
+        // anchors reset
+        document.querySelectorAll('#navPreview a').forEach(a => {
+            a.style.color = '';
+            a.style.textDecoration = '';
+        });
+
+        let navRules = [];
+
+        if ($('navBgCheck').checked) {
+            setStyle(nav, 'backgroundColor', $('navBg').value);
+            navRules.push(`background-color: ${$('navBg').value};`);
+        }
+        if ($('navPaddingCheck').checked) {
+            const pad = $('navPadding').value || '12px 16px';
+            setStyle(nav, 'padding', pad);
+            navRules.push(`padding: ${pad};`);
+        }
+        if ($('navDisplayCheck').checked) {
+            setStyle(nav, 'display', $('navDisplay').value);
+            navRules.push(`display: ${$('navDisplay').value};`);
+        }
+        if ($('navJustifyCheck').checked) {
+            // ensure flex so justify works
+            setStyle(nav, 'display', 'flex');
+            setStyle(nav, 'justifyContent', $('navJustify').value);
+            navRules.push(`justify-content: ${$('navJustify').value};`);
+        }
+        if ($('navGapCheck').checked) {
+            setStyle(nav, 'gap', $('navGap').value + 'px');
+            navRules.push(`gap: ${$('navGap').value}px;`);
+        }
+        // anchors color
+        if ($('navLinkColorCheck').checked) {
+            document.querySelectorAll('#navPreview a').forEach(a => a.style.color = $('navLinkColor').value);
+            navRules.push(`/* nav a color */ color: ${$('navLinkColor').value};`);
+        }
+        // hover rule injection
+        const dynamicStyleEl = document.getElementById('dynamicStyles');
+        let dynamicCss = "";
+        if ($('navHoverCheck').checked) {
+            dynamicCss += `#navPreview a:hover { color: ${$('navHover').value} !important; }\n`;
+        } else {
+            // nothing
+        }
+        dynamicStyleEl.textContent = dynamicCss;
+
+        const navCssText = `/* NAV */\n#navPreview {\n  ${navRules.join('\n  ')}\n}\n` +
+            ($('navLinkColorCheck').checked ? `#navPreview a { color: ${$('navLinkColor').value}; }\n` : '') +
+            ($('navHoverCheck').checked ? `#navPreview a:hover { color: ${$('navHover').value}; }\n` : '');
+        $('navCode').textContent = navCssText || "/* NAV - sem regras ativas */";
+
+        /* ==== BOX ==== */
+        const box = $('boxPreview');
+        // reset
+        box.style.backgroundColor = '';
+        box.style.width = '';
+        box.style.height = '';
+        box.style.borderRadius = '';
+        box.style.border = '';
+        box.style.boxShadow = '';
+        box.style.transform = '';
+        box.style.filter = '';
+        box.style.transition = '';
+
+        const boxRules = [];
+        if ($('boxBgCheck').checked) {
+            setStyle(box, 'backgroundColor', $('boxBg').value);
+            boxRules.push(`background-color: ${$('boxBg').value};`);
+        }
+        if ($('boxWidthCheck').checked) {
+            const w = $('boxWidth').value;
+            setStyle(box, 'width', w + 'px');
+            setStyle(box, 'height', w + 'px');
+            boxRules.push(`width: ${w}px;`);
+            boxRules.push(`height: ${w}px;`);
+        }
+        if ($('boxRadiusCheck').checked) {
+            setStyle(box, 'borderRadius', $('boxRadius').value + 'px');
+            boxRules.push(`border-radius: ${$('boxRadius').value}px;`);
+        }
+        if ($('boxBorderCheck').checked) {
+            setStyle(box, 'border', $('boxBorder').value);
+            boxRules.push(`border: ${$('boxBorder').value};`);
+        }
+        if ($('boxShadowCheck').checked) {
+            setStyle(box, 'boxShadow', $('boxShadow').value);
+            boxRules.push(`box-shadow: ${$('boxShadow').value};`);
+        }
+        if ($('boxTransformCheck').checked) {
+            const tr = `rotate(${$('boxRotate').value}deg) scale(${$('boxScale').value})`;
+            setStyle(box, 'transform', tr);
+            boxRules.push(`transform: ${tr};`);
+        }
+        if ($('boxFilterCheck').checked) {
+            const f = `blur(${$('boxBlur').value}px) brightness(${$('boxBright').value})`;
+            setStyle(box, 'filter', f);
+            boxRules.push(`filter: ${f};`);
+        }
+        if ($('boxTransitionCheck').checked) {
+            setStyle(box, 'transition', $('boxTransition').value);
+            boxRules.push(`transition: ${$('boxTransition').value};`);
+        }
+
+        $('boxCode').textContent = boxRules.length ? ".box {\n  " + boxRules.join('\n  ') + "\n}" : "/* BOX - sem regras ativas */";
+
+        /* ==== TEXTO ==== */
+        const txt = $('txtPreview');
+        // reset
+        txt.style.color = '';
+        txt.style.fontSize = '';
+        txt.style.fontWeight = '';
+        txt.style.textAlign = '';
+        txt.style.letterSpacing = '';
+        txt.style.textTransform = '';
+        txt.style.textShadow = '';
+        const txtRules = [];
+        if ($('txtColorCheck').checked) {
+            setStyle(txt, 'color', $('txtColor').value);
+            txtRules.push(`color: ${$('txtColor').value};`);
+        }
+        if ($('txtSizeCheck').checked) {
+            setStyle(txt, 'fontSize', $('txtSize').value + 'px');
+            txtRules.push(`font-size: ${$('txtSize').value}px;`);
+        }
+        if ($('txtWeightCheck').checked) {
+            setStyle(txt, 'fontWeight', $('txtWeight').value);
+            txtRules.push(`font-weight: ${$('txtWeight').value};`);
+        }
+        if ($('txtAlignCheck').checked) {
+            setStyle(txt, 'textAlign', $('txtAlign').value);
+            txtRules.push(`text-align: ${$('txtAlign').value};`);
+        }
+        if ($('txtSpacingCheck').checked) {
+            setStyle(txt, 'letterSpacing', $('txtSpacing').value + 'px');
+            txtRules.push(`letter-spacing: ${$('txtSpacing').value}px;`);
+        }
+        if ($('txtTransformCheck').checked) {
+            setStyle(txt, 'textTransform', $('txtTransform').value);
+            txtRules.push(`text-transform: ${$('txtTransform').value};`);
+        }
+        if ($('txtShadowCheck').checked) {
+            setStyle(txt, 'textShadow', $('txtShadow').value);
+            txtRules.push(`text-shadow: ${$('txtShadow').value};`);
+        }
+        $('txtCode').textContent = txtRules.length ? ".textPreview {\n  " + txtRules.join('\n  ') + "\n}" : "/* TEXT - sem regras ativas */";
+
+        /* ==== DIV (container) ==== */
+        const d = $('divPreview');
+        // reset
+        d.style.display = '';
+        d.style.gridTemplateColumns = '';
+        d.style.flexDirection = '';
+        d.style.justifyContent = '';
+        d.style.gap = '';
+        const dRules = [];
+        if ($('divDisplayCheck').checked) {
+            const disp = $('divDisplay').value;
+            setStyle(d, 'display', disp);
+            dRules.push(`display: ${disp};`);
+            if (disp === 'grid' && $('divGridCols').value.trim() && $('divDirectionCheck').checked) {
+                // user asked to use grid columns input combined with checkbox: support both
+                setStyle(d, 'gridTemplateColumns', $('divGridCols').value);
+                dRules.push(`grid-template-columns: ${$('divGridCols').value};`);
+            } else if (disp === 'flex' && $('divDirectionCheck').checked) {
+                setStyle(d, 'flexDirection', $('divDirection').value);
+                dRules.push(`flex-direction: ${$('divDirection').value};`);
+            }
+        }
+        if ($('divJustifyCheck').checked) {
+            setStyle(d, 'justifyContent', $('divJustify').value);
+            dRules.push(`justify-content: ${$('divJustify').value};`);
+        }
+        if ($('divGapCheck').checked) {
+            setStyle(d, 'gap', $('divGap').value + 'px');
+            dRules.push(`gap: ${$('divGap').value}px;`);
+        }
+        $('divCode').textContent = dRules.length ? ".divPreview {\n  " + dRules.join('\n  ') + "\n}" : "/* DIV - sem regras ativas */";
+
+        /* ==== TABLE ==== */
+        const tbl = $('tblPreview');
+        // reset some
+        tbl.style.borderCollapse = '';
+        tbl.style.borderSpacing = '';
+        // cells
+        document.querySelectorAll('#tblPreview th, #tblPreview td').forEach(c => {
+            c.style.padding = '';
+            c.style.backgroundColor = '';
+            c.style.color = '';
+        });
+        // zebra rows
+        document.querySelectorAll('#tblPreview tbody tr').forEach((tr, idx) => {
+            tr.style.backgroundColor = '';
+        });
+
+        const tblRules = [];
+        if ($('tblCollapseCheck').checked) {
+            setStyle(tbl, 'borderCollapse', $('tblCollapse').value);
+            tblRules.push(`border-collapse: ${$('tblCollapse').value};`);
+        }
+        if ($('tblSpacingCheck').checked) {
+            setStyle(tbl, 'borderSpacing', $('tblSpacing').value + 'px');
+            tblRules.push(`border-spacing: ${$('tblSpacing').value}px;`);
+        }
+        if ($('tblPaddingCheck').checked) {
+            document.querySelectorAll('#tblPreview th, #tblPreview td').forEach(c => c.style.padding = $('tblPadding').value + 'px');
+            tblRules.push(`td, th { padding: ${$('tblPadding').value}px; }`);
+        }
+        if ($('tblHeaderBgCheck').checked) {
+            document.querySelectorAll('#tblPreview thead th').forEach(th => {
+                th.style.backgroundColor = $('tblHeaderBg').value;
+                th.style.color = '#fff';
+            });
+            tblRules.push(`thead th { background-color: ${$('tblHeaderBg').value}; color: #fff; }`);
+        }
+        if ($('tblZebraCheck').checked) {
+            document.querySelectorAll('#tblPreview tbody tr:nth-child(odd)').forEach(tr => tr.style.backgroundColor = '#f7f7f7');
+            tblRules.push(`tbody tr:nth-child(odd) { background: #f7f7f7; }`);
+        }
+        $('tblCode').textContent = tblRules.length ? "table#tblPreview {\n  " + tblRules.join('\n  ') + "\n}" : "/* TABLE - sem regras ativas */";
+
+        /* ==== LISTS ==== */
+        const ul = $('ulPreview');
+        // reset
+        ul.style.listStyleType = '';
+        ul.style.color = '';
+        document.querySelectorAll('#ulPreview li').forEach(li => li.style.marginBottom = '');
+        const lstRules = [];
+        if ($('lstTypeCheck').checked) {
+            setStyle(ul, 'listStyleType', $('lstType').value);
+            lstRules.push(`list-style-type: ${$('lstType').value};`);
+        }
+        if ($('lstSpacingCheck').checked) {
+            document.querySelectorAll('#ulPreview li').forEach(li => li.style.marginBottom = $('lstSpacing').value + 'px');
+            lstRules.push(`li { margin-bottom: ${$('lstSpacing').value}px; }`);
+        }
+        if ($('lstColorCheck').checked) {
+            setStyle(ul, 'color', $('lstColor').value);
+            lstRules.push(`color: ${$('lstColor').value};`);
+        }
+        $('lstCode').textContent = lstRules.length ? "ul#ulPreview {\n  " + lstRules.join('\n  ') + "\n}" : "/* LIST - sem regras ativas */";
+
+        // finally, combine a compact full CSS preview (optional)
+        const combined = [
+            navCssText || '',
+            $('boxCode').textContent || '',
+            $('txtCode').textContent || '',
+            $('divCode').textContent || '',
+            $('tblCode').textContent || '',
+            $('lstCode').textContent || ''
+        ].filter(Boolean).join('\n\n');
+
+        // put combined CSS in page-level code box (reuse navCode as full or show separate)
+        // we'll create a full-output by concatenating visible section codes:
+        const fullOutput = "/* CSS gerado pelo Playground */\n\n" +
+            (navCssText ? navCssText + "\n" : "") +
+            ($('boxCode').textContent ? $('boxCode').textContent + "\n" : "") +
+            ($('txtCode').textContent ? $('txtCode').textContent + "\n" : "") +
+            ($('divCode').textContent ? $('divCode').textContent + "\n" : "") +
+            ($('tblCode').textContent ? $('tblCode').textContent + "\n" : "") +
+            ($('lstCode').textContent ? $('lstCode').textContent + "\n" : "");
+
+        // show a compact full view in console or developer area? We'll update navCode to include its own rules already.
+        // But user has per-section code boxes — keep them as is.
+    }
+
+    // run initial update
+    window.addEventListener('DOMContentLoaded', updateAll);
+</script>
+
+</body>
+</html>
