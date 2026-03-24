@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Um JS AI">
+    <meta name="author" content="Machado Dacio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu programa JS</title>
+</head>
+
+<body>
+
+<div id="pagina">
+<script>
+     /* Manipulando Variaveis*/
+    const valor = 1;
+    console.log("Meu Valor" + valor);
+
+    let adcione = 1;
+    console.log("Meu Valor" + valor + adcione);
+    
+    console.log("Meu Valor" + (valor + adcione));
+
+    var  outra = "banana";
+    console.log("Meu Valor" + valor + outra);
+    
+    outra = true;
+    console.log("Meu Valor" + valor + !outra);
+     console.log(outra);
+
+</script>
+    
+    <h1> Meu Carro, um obj JS </h1>
+    <p id="car"> Meu carro é: </p>
+    <button onclick="carro1.exibirDetalhes();">Mostre o Carro</button>
+
+<script>
+   class Carro {
+        constructor(marca, modelo, caracteristicas) {
+        this.Marca = marca;
+        this.Modelo = modelo;
+        this.Caracteristicas = caracteristicas;
+        }
+        exibirDetalhes() {
+        /*alert(`Marca: ${this.Marca} - Modelo: ${this.Modelo}`);*/
+            console.log(`Marca: ${this.Marca} - Modelo: ${this.Modelo}`)
+            document.getElementById("car").innerHTML = (`Marca: ${this.Marca} - Modelo: ${this.Modelo}`)
+        }
+        }
+        const carro1 = new Carro("Ford", "Ka", ["Preto", 1.0, "2 portas"]);
+         
+</script>
+
+</div>
+</body>
+</html>
+
+<style>
+		body {
+			background-color: #4548ae;
+			font-family: Arial, sans-serif;
+		}
+
+		h1 {
+			color: #333;
+			text-align: center;
+		}
+
+		form {
+			background-color: #fff;
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #333;
+			font-weight: bold;
+		}
+
+		input[type=text], textarea {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+			font-size: 16px;
+		}
+
+		textarea {
+			height: 100px;
+		}
+
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 3px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+	</style>
