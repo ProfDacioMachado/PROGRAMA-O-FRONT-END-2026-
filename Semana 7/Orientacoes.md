@@ -355,4 +355,4 @@ atualizarFundo();
 * 
 * 
 
-*se chegou até aqui, adicione botão escondido na pagina com uma foto do Ferlini (Vulgo Gostozinho) na atividade que for entregue git e ganhe um ponto extra.*
+*se chegou até aqui, adicione um botão escondido na pagina com uma foto do __Ferlini__ `(vulgo Gostosinho)` na atividade entregue git e ganhe um ponto extra.*
