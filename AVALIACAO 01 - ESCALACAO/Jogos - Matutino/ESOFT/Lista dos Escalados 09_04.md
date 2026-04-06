@@ -7,7 +7,7 @@
 
 ## 📅 Data do Jogo
 
-# Quinta-Feira (07/04)
+# Quinta-Feira (09/04)
  
 
 ---
