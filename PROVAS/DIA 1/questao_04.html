@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Jogador da Copa do Mundo </title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style> 
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .bg-copa {
+            background-image: url('img/FIFA-World-Cup-26.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .card {
+            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-copa">
+        <div class="d-flex flex-column align-items-center">       
+            <div class="card" style="width: 22rem;" aria-hidden="true">
+            <img src="img/img_.svg" class="card-img-top" alt="Placeholder Copa">
+            
+                <div class="card-body"> 
+                    <h5 id="Nome" class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                        <span id="Rank" class="badge text-bg-secondary">-</span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span id="Data_Nas" class="placeholder col-4"></span><br>
+                        <span id="Alutra" class="placeholder col-4"></span><br>
+                        <span id="Posição " class="placeholder col-6"></span><br>
+                    </p>
+
+                
+                </div>
+            </div>
+                <a href="#" onclick="revelar()" tabindex="-1" class="btn btn-primary" style="margin: 10px; padding: 10px;">
+                 Revelar 
+                </a>
+        </div>
+    </div>
+
+    <script src="js\bootstrap.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

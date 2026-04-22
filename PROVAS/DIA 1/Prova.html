@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Prática de FrontEnd</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 3px solid var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .info-aluno {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .question-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .question-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: block;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        h2 {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        .intro-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #ddd;
+            font-style: italic;
+        }
+
+        .descritivo-apoio {
+            background-color: #e8f4fd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        .item-destaque {
+            background-color: #befad1;
+            padding: 2px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .comando {
+            font-weight: 500;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        @media print {
+            body { background-color: white; }
+            .question-card { box-shadow: none; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Avaliação 1</h1>
+            <p>Disciplina: FrontEnd</p>
+        </header>
+
+        <div class="info-aluno">
+            <span><strong>Estudante:</strong> - </span>
+            <span><strong>Data:</strong> 06/04/2026</span>
+        </div>
+
+        <section class="question-card">
+            <span class="question-header">Questão 01</span>
+            
+            <h2>Introdução:</h2>
+            <div class="intro-box">
+                O HTML (HyperText Markup Language) é a linguagem fundamental para a construção de páginas web, sendo responsável por estruturar e organizar o conteúdo exibido no navegador. Por meio de tags, é possível definir elementos como títulos, parágrafos, links, imagens e também organizar semanticamente a página com estruturas como cabeçalho, navegação e seções de conteúdo.
+                Considerando os conceitos apresentados em aula sobre estrutura básica de uma página HTML e uso de tags de organização de conteúdo, desenvolva a atividade a seguir.
+            </div>
+
+            <h2>Comando:</h2>
+            <div class="comando">
+                Crie uma página HTML completa contendo a estrutura básica do documento (<code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code> e <code>&lt;body&gt;</code>).<br>
+                Dentro da tag <code>&lt;body&gt;</code>, utilize as tags <strong><code>&lt;a&gt;</code> | <code>&lt;p&gt;</code> | <code>&lt;nav&gt;</code> | <code>&lt;section&gt;</code>  </strong> de estruturação de conteúdo, para organizar as informações do Descritivo de apoio abaixo como uma página da WEB.
+                <br><br>
+                A página deve conter obrigatoriamente:
+                <ul>
+                    <li>As tags solicitadas;</li>
+                    <li>A navegação entre as seções da página pela barra de navegação <code>&lt;nav&gt;</code> ;</li>
+                    <li>Uma organização clara e estruturada do conteúdo utilizando as tags solicitadas.</li>
+                   </ul>
+                   <div class="item-destaque" >É permitida a utilização de demais tag's e recursos do html, porém é criterio avaliativo os itens acima mencionados.</div>
+                </div>
+
+            <h2>Descritivo de Apoio:</h2>
+            <div class="descritivo-apoio">
+                <strong> Informações sobre a Copa Do Mundo </strong>
+            <br>🌍 Organização e Sedes <br>
+            <small>A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países: Estados Unidos, Canadá e México. Essa será também a maior Copa da história em número de cidades-sede, com partidas distribuídas por diversas regiões da América do Norte, ampliando o alcance global do torneio. </small>
+            <br>⚽ Novo Formato <br>
+            <small>O torneio contará com 48 seleções, em vez das tradicionais 32. As equipes serão divididas em grupos, aumentando o número total de jogos e dando mais oportunidades para países de diferentes continentes participarem. Essa mudança foi promovida pela FIFA para tornar a competição mais inclusiva e competitiva.</small>
+            <br>🏆 Expectativas e Impacto <br>
+            <small>A edição de 2026 promete ser uma das mais assistidas da história, com grande impacto econômico e cultural nos países-sede. Além disso, seleções tradicionais e emergentes devem protagonizar jogos de alto nível, aumentando ainda mais o interesse global pelo futebol e fortalecendo o esporte em novas regiões.</small>
+            </div>
+
+        </section>
+
+
+         <section class="question-card">
+            <span class="question-header">Questão 02</span>
+            
+            <h2>Introdução:</h2>
+            <div class="intro-box">
+              O CSS (Cascading Style Sheets) permite a separação entre o conteúdo (HTML) e a apresentação visual. 
+              A utilização de folhas de estilo externas é a prática recomendada na indústria, pois facilita a manutenção do código e a padronização visual em múltiplas páginas de um mesmo projeto.
+                <div class="item-destaque">Lembrando que a estrutura do CSS possui 3 itens:
+                    <ul>
+                        <li> Seletor: Identifica o elemento HTML. </li>
+                        <li> Propriedade: O atributo que será alterado (ex: color).</li>
+                        <li> Valor: A configuração aplicada (ex: blue).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Comando:</h2>
+            <div class="comando">
+                Crie uma folha de estilos para estilizar a página desenvolvida no item anterior. <br>
+                Que aplique minimamente as Propriedades do CSS: <br>
+                (<code>border-radius</code> | <code>background-color</code> | <code>background</code> | <code>font-size</code> | <code>font-weight</code> | <code>color</code> | <code>text-align</code>).
+                 <br>Com valores irrestritos, utilize <strong> da forma que preferir </strong> o CSS para melhorar o aspecto visual  das informações da página.
+                <br><br>
+                O estilo da página deve conter obrigatoriamente:
+                <ul>
+                    <li>A estilização de classe para ser aplicada as secções. </li>
+                    <li>Alteração de tamanho de fonte para destacar os titulos das seções </li>
+                    <li>Uma cor de fundo suave aplicada ao  <code>background</code>.</li>
+                    <li>Uma cor de fundo suave aplicada a cada secção .</li>
+                    <li>Itens minimamente espaçados </li>
+                </ul>
+            </div>
+
+            <h2>Descritivo de Apoio:</h2>
+            <div class="descritivo-apoio">
+                <strong> Aplicar à página desenvolvida na questão anterior </strong>
+               <br> <small> O Super Playground CSS está perdido em algum lugar com os arquivos da prova</small>
+            </div>
+
+        </section>
+
+
+        <section class="question-card">
+        <span class="question-header">Questão 03</span>
+        
+        <h2>Introdução:</h2>
+        <div class="intro-box">
+            O JavaScript é uma linguagem de programação que permite adicionar interatividade às páginas web. Através da manipulação do DOM (Document Object Model), podemos reagir a eventos do usuário, como cliques em botões, e modificar o conteúdo da página dinamicamente, criando elementos como tabelas, listas e alertas sem a necessidade de recarregar o navegador.
+        </div>
+
+        <div class="comando">
+            Desenvolva um script em JavaScript que adicione funcionalidade à página das questões anteriores. <br>
+            Siga as especificações abaixo:
+            <ul>
+                <li>Crie um botão no HTML com o texto <strong>"Mostrar Tabela de Jogos"</strong>;</li>
+                <li>Utilize o evento <code>onclick</code> para chamar uma função JavaScript ;</li>
+                <li>A função deve inserir dinamicamente, ao final da página, uma imgem (<code>&lt;img&gt;</code>) citada no Descritivo de Apoio abaixo;</li>
+                </ul>
+    
+        </div>
+
+        <h2>Descritivo de Apoio:</h2>
+        <div class="descritivo-apoio">
+            <strong> Arquivo da Imagem </strong>
+            <br> O arquivo fonte da imagem se encontra dentro da pasta Prova, que está na área de trabalho.
+        </div>
+
+    </section>
+
+
+
+
+
+
+    <section class="question-card">
+            <span class="question-header">Questão 04</span>
+            
+            <h2>Introdução:</h2>
+            <div class="intro-box">
+                A manipulação de classes CSS e de conteúdo textual via JavaScript é uma das técnicas mais utilizadas para criar interfaces dinâmicas. Ao acessar elementos do DOM, podemos alterar o estado visual de um componente (removendo ou adicionando classes de estilo) e atualizar informações em tempo real sem recarregar o documento, proporcionando uma experiência fluida ao usuário.
+            </div>
+
+            <h2>Comando:</h2>
+            <div class="comando">
+                Abra o arquivo <strong><code>questao_04.html</code></strong> presente na pasta <strong>Prova</strong> para que realize as seguintes implementações utilizando JavaScript:
+                <br>
+                Utilize o arquivo <code>script.js</code>  presente na pasta <strong>Prova</strong> que está vinculado à página para implementar a função <strong>revelar()</strong>. <br>
+                A função deve ser disparada ao clicar no botão "Revelar" e realizar as seguintes ações:
+                <ul>
+                    <li>Alterar o atributo <code>src</code> da imagem principal para o arquivo do jogador (conforme Descritivo);</li>
+                    <li>Substituir o conteúdo dos <code>&lt;span&gt;</code> (que atualmente contêm placeholders) pelas informações contidas no Descritivo de Apoio;</li>
+                    <li><strong>Remover</strong> a classe CSS de todos os elementos afetados;</li>
+                     <li>Alterne a classe <code>"placeholder"</code> dos elementos e aplique a classe <code>"card-text"</code> para finalizar a estilização.</li>
+                </ul>
+                <div class="item-destaque">
+                   <strong>Nota:</strong> O arquivo <code>script.js</code> já está vinculado ao HTML, utilize-o para escrever seu código.<br>
+                   <small> As classes do bootstrap estão funcionando em modo local para o arquivo, você pode testar normalmente.</small>
+                </div>
+            </div>
+
+            <h2>Descritivo de Apoio:</h2>
+            <div class="descritivo-apoio">
+                <strong>Perfil do Jogador para Atualização:</strong>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>⚽ <strong>Nome Completo:</strong> Vinícius José Paixão de Oliveira Júnior</li>
+                    <li>📅 <strong>Data de Nascimento:</strong> 12/07/2000 (25 anos)</li>
+                    <li>📏 <strong>Altura:</strong> 1,76 m</li>
+                    <li>🏃 <strong>Posição:</strong> Ponta-esquerda / Atacante</li>
+                    <li>🏃 <strong>Rank:</strong> 9,5 </li>
+                    <li>🖼️ <strong>Caminho da Imagem:</strong> <code>img/_vinicius_junior.png</code></li>
+                </ul>
+                <br>
+                <small><em>Nota: Os elementos <code>&lt;span&gt;</code> na página original possuem IDs específicos para facilitar a seleção via JS.</em></small>
+            </div>
+        </section>
+
+
+
+
+        <footer>
+            © 2026 - DFMF System
+        </footer>
+    </div>
+
+</body>
+</html>
