@@ -305,7 +305,76 @@
             </div>
         </section>
 
+        <section class="question-card">
+            <div class="question-header">🛡️ Exercício: Validador de Segurança Infinity</div>
+            
+            <h2>Introdução:</h2>
+            <div class="intro-box">
+                A validação de dados sensíveis é o primeiro nível de defesa em sistemas financeiros. O <strong>Card Guard</strong> utiliza o Algoritmo de Luhn para verificar a integridade matemática de números de cartões, além de identificar a origem do emissor e o setor industrial através dos códigos BIN/IIN, prevenindo erros de processamento e garantindo a conformidade internacional.
+            </div>
 
+            <h2>Comando:</h2>
+            <div class="comando">
+                Desenvolva uma ferramenta de análise que verifique se um número de cartão de crédito é matematicamente válido e extraia suas informações de origem.
+                <ul>
+                    <li>Crie uma interface com um campo para inserção do número (até 16 dígitos) e um botão <strong>"Analisar Cartão"</strong>;</li>
+                    <li>O sistema deve processar o número, removendo espaços e pontos, e verificar se possui entre 13 e 16 dígitos;</li>
+                    <li>Implemente o <strong>Algoritmo de Luhn</strong> no JavaScript para validar o número;</li>
+                    <li>Ao final, exiba um <strong>Painel de Info</strong> contendo: Status (Válido/Inválido), Bandeira (Visa, Master, etc.), Categoria de Setor e Banco Emissor.</li>
+                </ul>
+            </div>
+
+            <div class="item-destaque">
+                <strong>Lógica do Algoritmo de Luhn:</strong>
+                <br>1. Inverta a ordem dos dígitos do cartão.
+                <br>2. Multiplique por 2 os dígitos nas posições pares (2º, 4º...). Se o resultado for > 9, subtraia 9.
+                <br>3. Some todos os dígitos resultantes. Se o total for divisível por 10, o cartão é <strong>Válido</strong>.
+            </div>
+
+            <h2>Descritivo de Apoio:</h2>
+            <div class="descritivo-apoio">
+                <strong>Tabelas de Identificação (BIN/IIN):</strong>
+                
+                <h2>1. Identificação por Setor Industrial (MII - 1º Dígito)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>1º Dígito</th>
+                            <th>Setor Industrial</th>
+                            <th>Exemplos de Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>3</td><td>Viagens e Entretenimento</td><td>American Express, Diners</td></tr>
+                        <tr><td>4</td><td>Bancos (Rede Visa)</td><td>Cartões bancários internacionais</td></tr>
+                        <tr><td>5</td><td>Bancos (Rede Mastercard)</td><td>Cartões bancários internacionais</td></tr>
+                        <tr><td>6</td><td>Varejo e Marcas Nacionais</td><td>Cartões Elo, Discover, Hipercard</td></tr>
+                    </tbody>
+                </table>
+
+                <h2>2. Identificação de Operadoras e Bandeiras</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bandeira</th>
+                            <th>Prefixos (BIN)</th>
+                            <th>Extensão Padrão</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Visa</td><td>4</td><td>13 ou 16 dígitos</td></tr>
+                        <tr><td>Mastercard</td><td>51 a 55 (ou 2221 a 2720)</td><td>16 dígitos</td></tr>
+                        <tr><td>American Express</td><td>34, 37</td><td>15 dígitos</td></tr>
+                        <tr><td>Elo</td><td>4011, 5067, 4514, 6363</td><td>16 dígitos</td></tr>
+                        <tr><td>Hipercard</td><td>6062</td><td>16 dígitos</td></tr>
+                    </tbody>
+                </table>
+                <br>
+                <em>Nota Técnica: Utilize <code>substring()</code> ou <code>startsWith()</code> para capturar os primeiros dígitos e realizar a comparação com as tabelas.</em>
+            </div>
+        </section>
+
+        
         <footer>
             Atividade Prática de JavaScript - Desenvolvido com ❤️ by Dacio Machado 
         </footer>
