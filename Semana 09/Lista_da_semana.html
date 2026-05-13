@@ -332,45 +332,57 @@
             </div>
 
             <h2>Descritivo de Apoio:</h2>
-            <div class="descritivo-apoio">
-                <strong>Tabelas de Identificação (BIN/IIN):</strong>
+<div class="descritivo-apoio">
+                <p>Historicamente tratado como sinônimo do BIN, o IIN é a nomenclatura técnica global padronizada pela ISO. Ele ocupa obrigatoriamente os 8 dígitos iniciais do número total do cartão (PAN):</p>
                 
-                <h2>1. Identificação por Setor Industrial (MII - 1º Dígito)</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>1º Dígito</th>
-                            <th>Setor Industrial</th>
-                            <th>Exemplos de Uso</th>
+                            <th>Composição do IIN</th>
+                            <th>Atribuição de Dados</th>
+                            <th>Finalidade no Processamento</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>3</td><td>Viagens e Entretenimento</td><td>American Express, Diners</td></tr>
-                        <tr><td>4</td><td>Bancos (Rede Visa)</td><td>Cartões bancários internacionais</td></tr>
-                        <tr><td>5</td><td>Bancos (Rede Mastercard)</td><td>Cartões bancários internacionais</td></tr>
-                        <tr><td>6</td><td>Varejo e Marcas Nacionais</td><td>Cartões Elo, Discover, Hipercard</td></tr>
+                        <tr>
+                            <td>Dígito 1</td>
+                            <td>Código do Setor Industrial Geral</td>
+                            <td>Roteamento inicial na rede de adquirência</td>
+                        </tr>
+                        <tr>
+                            <td>Dígitos 2 a 5</td>
+                            <td>Código Geográfico e do Emissor</td>
+                            <td>Identifica o país de origem e o banco detentor do lote</td>
+                        </tr>
+                        <tr>
+                            <td>Dígitos 6 a 8</td>
+                            <td>Código da Carteira de Produtos</td>
+                            <td>Determina se o produto é Pré-pago, Débito ou Crédito</td>
+                        </tr>
+                        <tr>
+                            <td>Dígito 9 em diante</td>
+                            <td>Fora do IIN (Conta + Verificação)</td>
+                            <td>Identificação única do cliente e validação de Luhn</td>
+                        </tr>
                     </tbody>
                 </table>
 
-                <h2>2. Identificação de Operadoras e Bandeiras</h2>
+                <h2>Tabela de Referência por Setor (1º Dígito)</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Bandeira</th>
-                            <th>Prefixos (BIN)</th>
-                            <th>Extensão Padrão</th>
+                            <th>Dígito</th>
+                            <th>Setor Industrial</th>
+                            <th>Exemplos</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Visa</td><td>4</td><td>13 ou 16 dígitos</td></tr>
-                        <tr><td>Mastercard</td><td>51 a 55 (ou 2221 a 2720)</td><td>16 dígitos</td></tr>
-                        <tr><td>American Express</td><td>34, 37</td><td>15 dígitos</td></tr>
-                        <tr><td>Elo</td><td>4011, 5067, 4514, 6363</td><td>16 dígitos</td></tr>
-                        <tr><td>Hipercard</td><td>6062</td><td>16 dígitos</td></tr>
+                        <tr><td>3</td><td>Viagens e Entretenimento</td><td>Amex, Diners</td></tr>
+                        <tr><td>4</td><td>Bancos (Rede Visa)</td><td>Bancários Internacionais</td></tr>
+                        <tr><td>5</td><td>Bancos (Rede Mastercard)</td><td>Bancários Internacionais</td></tr>
+                        <tr><td>6</td><td>Varejo e Marcas Nacionais</td><td>Elo, Discover, Hipercard</td></tr>
                     </tbody>
                 </table>
-                <br>
-                <em>Nota Técnica: Utilize <code>substring()</code> ou <code>startsWith()</code> para capturar os primeiros dígitos e realizar a comparação com as tabelas.</em>
             </div>
         </section>
 
